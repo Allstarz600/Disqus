@@ -1,0 +1,11 @@
+<h1>Admin Block</h1>
+<p><a href="admin_profile">Profile</a> </p>
+<p><a href="admin_reg">New Admin</a> </p>
+<p><a href="user_reg">New User</a> </p>
+<p><a href="show_admins">Show Admins</a> </p>
+<p><a href="show_users">Manage Users</a> </p>
+<p><a href="admin_changepass">Change Password</a> </p>
+<p><a href="logout">Logout</a> </p>
+<p><a href="show_questions_general">show all qurstions</a></p>
+
+
