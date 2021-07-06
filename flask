@@ -9,3 +9,116 @@
 <p><a href="show_questions_general">show all qurstions</a></p>
 
 
+//admin profile//
+
+<h1>Profile</h1>
+{% if data %}
+<form method="post" action="admin_reg">
+    <p>Name <input value="{{ data[0] }}" type="text" name="T1" /> </p>
+    <p>Address <input value="{{ data[1] }}" type="text" name="T2" /> </p>
+    <p>Contact <input value="{{ data[2] }}" type="text" name="T3" /> </p>
+    <p>Email <input readonly value="{{ data[3] }}" type="text" name="T4" /> </p>
+
+    <p><input type="submit" name="B1" value="Save Changes" /> </p>
+</form>
+
+{% elif data1 %}
+    <h3>{{data1}}</h3>
+{% endif %}
+
+
+
+<h1>Admin Registration</h1>
+<form method="post" action="admin_reg">
+    <p>Name <input type="text" name="T1" /> </p>
+    <p>Address <input type="text" name="T2" /> </p>
+    <p>Contact <input type="text" name="T3" /> </p>
+    <p>Email <input type="text" name="T4" /> </p>
+    <p>Password <input type="password" name="T5" /> </p>
+    <p><input type="submit" name="B1" value="Register" /> </p>
+</form>
+
+{% if kota %}
+    <h3>{{kota}}</h3>
+{% endif %}
+
+
+<h1>Change Password</h1>
+<form method="post" action="admin_changepass">
+    <p>Old Password<input type="password" name="T1" /> </p>
+    <p>New Password<input type="password" name="T2" /> </p>
+    <p>Confirm Password<input type="password" name="T3" /> </p>
+    <p><input type="submit" name="B1" value="Change" /> </p>
+</form>
+{% if data %}
+    <h3>{{ data }}</h3>
+{% endif %}
+
+
+<h1>Upload Solution</h1>
+{% if data %}
+
+    <h3>{{data[2]}}</h3>
+    <p>
+        Date : {{data[3]}}
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Subject : {{data[1]}}
+    </p>
+    <form method="post" action="solve1">
+        <input name="H1" type="hidden" value="{{data[0]}}" />
+        <p>
+            <textarea rows="5" cols="60" name="T1" ></textarea>
+
+        </p>
+        <p><input type="submit" name="B1" value="Upload Solution" /> </p>
+    </form>
+{% elif data1 %}
+    <h3>{{ data1 }}</h3>
+{% elif soldata %}
+<h2>Solutions</h2>
+
+    {% for row in data %}
+        <h3>{{row[2]}}</h3>
+        <p>
+            Date : {{row[3]}}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Solved by : {{row[4]}}
+
+        </p>
+        <hr/>
+    {% endfor %}
+{% endif %}
+
+
+<h1>My Questions</h1>
+{% if data %}
+    {% for row in data %}
+        <h3>{{row[2]}}</h3>
+        <p>
+            Date : {{row[3]}}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Subject : {{row[1]}}
+        </p>
+    {% endfor %}
+{% elif data1 %}
+    <h3>{{ data1 }}</h3>
+{% endif %}
+
+<h1>UPLOAD</h1>
+{% if data %}
+    {% for row in data %}
+        <h3>{{row[2]}}</h3>
+        <p>
+            Date : {{row[3]}}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Subject : {{row[1]}}
+        </p>
+<form method="post" action="solve">
+    <input type="hidden" name="h1" value="{{row[0]}}"/>
+    <p><input type="submit" name="h2" value="solve"/> </p>
+</form>
+    {% endfor %}
+{% elif data1 %}
+    <h3>{{ data1 }}</h3>
+{% endif %}
+
